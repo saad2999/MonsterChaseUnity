@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private string WalkAnimation="Walk";
     private bool isGrounded=true;
     private string GROUND_TAG = "Ground";
+    private string Enemy_TAG = "Enemy";
     private void Awake()
     {
         mybody2d = GetComponent<Rigidbody2D>();
@@ -80,6 +81,16 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
            
+           
         }
+        if (collision.gameObject.CompareTag(Enemy_TAG))
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Enemy_TAG))
+            Destroy(gameObject);
     }
 } //class
