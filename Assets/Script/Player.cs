@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+                        /*Declaring Data Members for player*/
     [SerializeField]
     private float moveForce = 22f;
     [SerializeField]
     private float jumpForce = 11f;
     private float moveX;
-    private Rigidbody2D mybody2d;
+    private Rigidbody2D mybody2d; 
     private Animator anim;
     private SpriteRenderer sprite_R;
     private string WalkAnimation="Walk";
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     private string Enemy_TAG = "Enemy";
     private void Awake()
     {
+                // assigning  Reference to Components
         mybody2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite_R = GetComponent<SpriteRenderer>();
@@ -32,12 +34,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerjump();
+        playerjump(); // this function for player jump (vertical movement)
     }
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
+        playerMovement(); 
         AnimatePlayer();
     }
     void playerMovement()
